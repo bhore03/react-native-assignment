@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Image, TouchableOpacity, Dimensions } from 'react-native';
 import { Video } from 'expo-av';
+import *as Animatable from 'react-native-animatable';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const { width } = Dimensions.get('window');
@@ -72,7 +73,7 @@ const DetailScreen = ({ route, navigation }) => {
       </View>
 
       {/* Selected Track Details */}
-      <View style={styles.videoContainer}>
+      <Animatable.View animation="fadeInUp" duration={300} easing="ease-in" style={styles.videoContainer}>
         <Video
           source={track.image}
           style={styles.video}
@@ -88,9 +89,9 @@ const DetailScreen = ({ route, navigation }) => {
             resizeMode="contain"
           />
         </View>
-      </View>
+      </Animatable.View>
 
-      <View style={styles.content}>
+      <Animatable.View animation="fadeInUp" duration={300} easing="ease-in" style={styles.content}>
         <Text style={styles.title}>{track.title}</Text>
         <Text style={styles.description}>{track.description}</Text>
 
@@ -144,7 +145,7 @@ const DetailScreen = ({ route, navigation }) => {
             <Text style={styles.levelTextt}> based on your answers</Text>
           </View>
         </View>
-      </View>
+      </Animatable.View>
     </View>
   );
 };

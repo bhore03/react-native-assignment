@@ -14,6 +14,7 @@ export default function App() {
       <StatusBar style="light" />
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Track" component={TrackScreen} />
+        
         <Stack.Screen name="Detail" component={DetailScreen} />
       </Stack.Navigator>
     </NavigationContainer>
