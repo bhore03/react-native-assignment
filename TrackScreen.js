@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Dimensions, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Video } from 'expo-av';
+import *as Animatable from 'react-native-animatable';
 
 const { width } = Dimensions.get('window');
 
@@ -59,7 +60,7 @@ const TrackScreen = ({ navigation }) => {
           <Text style={styles.checklistText}>complete your track to unlock new skills and projects!</Text>
         </View>
       </View>
-
+<Animatable.View animation="fadeInDown" duration={300} easing="ease-in">
       <ScrollView 
         horizontal 
         showsHorizontalScrollIndicator={false}
@@ -73,7 +74,7 @@ const TrackScreen = ({ navigation }) => {
           <TouchableOpacity 
             key={index} 
             style={styles.track}
-            onPress={() => navigation.navigate('Detail', { track: track, tracks: tracks })}
+            onPress={() => navigation.replace('Detail', { track: track, tracks: tracks })}
           >
             <Video
               source={track.image}
@@ -108,6 +109,7 @@ const TrackScreen = ({ navigation }) => {
           </TouchableOpacity>
         ))}
       </ScrollView>
+      </Animatable.View>
 
       <View style={styles.indicators}>
         {tracks.map((_, index) => (

@@ -36,7 +36,7 @@ const DetailScreen = ({ route, navigation }) => {
     <View style={styles.container}>
       <TouchableOpacity 
         style={styles.backButton}
-        onPress={() => navigation.goBack()}
+        onPress={() => navigation.replace('Track')}
       >
         <View style={styles.backButtonContent}>
           <Image 
